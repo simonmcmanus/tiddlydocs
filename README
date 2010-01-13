@@ -145,3 +145,14 @@ It might be best of all this static content is packaged up somewhere and
 made available for distribution.
 
 Another option is to make it all into binary tiddlers.
+
+HOWTO UPDATE
+
+When changes are made to the tiddlers which are source content
+for TiddlyDocs it is necessary to update the existing instances
+of tiddlydocs. Assuming the above install process has been followed
+in the past, the process for updating the instances is as follows:
+
+* sudo pip instal -U tiddlywebplugins.tiddlydocs
+* cd <instance dir>
+* twanager update
