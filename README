@@ -1,0 +1,58 @@
+This is an attempt to package the TiddlyDocs system as
+a Python package.
+
+If does a few things for the sake of packaging and
+installation. Thus far none of these changes are for
+supporting development. The things are:
+
+* In setup.py establishes dependencies on those python
+  packages which are dependencies that can be installed
+  from PyPI.
+
+* In tiddlywebplugins.tiddlydocs.instance it defines the
+  necessary recipes, bags, policies and instance_tiddlers
+  that are needed for the system to run.
+
+* In tiddlydocs (the script) it provides a way to do 
+
+    tiddlydocs <instance name>
+
+  to create a new instance with the necessary configuration
+  and recipes, bags, policies etc.
+
+* In tiddlydocs tiddlywebplugins/tiddlydocs/__init__.py is
+  the code required to bootstrap the plugin and its dependencies
+  include rtf, room_script etc.
+
+* In Makefile a 'remotes' target which does two things:
+  * Get the remote python files and store them locally for
+    packaging.
+  * Get the remote TiddlyWiki related files, mentioned in
+    tiddlywebplugins.tiddlydocs.instance, and cache them
+    locally so they can be packaged and reused after
+    installation.
+
+* In Makefile a 'dist' target which creates a 
+  tiddlywebplugins.tiddlydocs tarball that can go to
+  PyPI or be used directly with pip for installation,
+  dependencies will be satisfied.
+
+At the moment the code does _not_ handle the packaging of
+the static content used for the editor and other things.
+This needs to be dealt with in a separate process as how
+static content is handled is a per-instance concept whereas
+everything else is a per-machine concept.
+
+This means that after installing tiddlywebplugins.tiddlydocs
+it is necessary to follow a few additional steps:
+
+* Create an instance:
+
+    tiddlydocs <instance>
+
+* Configure that instance for how it will served over the web
+  which means:
+  * Setting server_host in tiddlywebconfig.py
+  * Configuring, in the web server and in tiddlywebconfig.py
+    how static content will be served.
+  
