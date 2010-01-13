@@ -3,7 +3,7 @@ AUTHOR = 'Python Person'
 AUTHOR_EMAIL = 'python@example.org'
 NAME = 'tiddlywebplugins.tiddlydocs'
 DESCRIPTION = 'Packaging of Tiddlydocs'
-VERSION = '0.1'
+VERSION = '0.2'
 
 
 import os
@@ -27,7 +27,7 @@ setup(
     py_modules = ['tiddlyeditor_plus', 'gadget', 'room_script', 'space', 'rtf',
         'html_validator', 'tiddlywiki_validator'],
     install_requires = ['setuptools',
-        'tiddlyweb',
+        'tiddlyweb>=0.9.96',
         'tiddlywebwiki',
         'tiddlywebplugins.atom',
         'tiddlywebplugins.static',
