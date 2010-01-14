@@ -22,7 +22,7 @@ setup(
     packages = find_packages(exclude='test'),
     author_email = AUTHOR_EMAIL,
     platforms = 'Posix; MacOS X; Windows',
-    scripts = ['tiddlydocs'],
+    scripts = ['tiddlydocs', 'tiddlydocs_static_files.sh'],
     py_modules = ['tiddlyeditor_plus', 'gadget', 'room_script', 'space', 'rtf',
         'html_validator', 'tiddlywiki_validator'],
     install_requires = ['setuptools',
