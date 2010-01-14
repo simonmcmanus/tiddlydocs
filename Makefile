@@ -22,7 +22,6 @@ plugin_remotes:
 	./cacher
 
 test: remotes
-	py.test -x test
 
 dist: remotes test 
 	python setup.py sdist

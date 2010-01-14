@@ -1,9 +1,8 @@
-# YOU NEED TO EDIT THESE
-AUTHOR = 'Python Person'
-AUTHOR_EMAIL = 'python@example.org'
+AUTHOR = 'Simon McManus'
+AUTHOR_EMAIL = 'simon@osmosoft.com'
 NAME = 'tiddlywebplugins.tiddlydocs'
 DESCRIPTION = 'Packaging of Tiddlydocs'
-VERSION = '0.2'
+VERSION = '0.10'
 
 
 import os
