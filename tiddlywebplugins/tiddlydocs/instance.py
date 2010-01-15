@@ -28,7 +28,7 @@ store_structure['bags']['documents'] = {
             'create': [],
             'delete': [],
             'manage': ['R:ADMIN'],
-            'accept': ['NONE'],
+            'accept': [],
             'owner': 'administrator',
             }
         }
