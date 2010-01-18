@@ -20,6 +20,7 @@ def main(args):
     instance_path = args[1]
     config['instance_tiddlers'] = instance.instance_tiddlers
     spawn(instance_path, config, instance)
+    print "TiddlyDocs instance has been created. Please see the readme to setup static files. "
     return True
 
 
