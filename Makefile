@@ -1,11 +1,21 @@
 .PHONY: test dist upload
 
 clean:
+	
 	find . -name "*.pyc" |xargs rm || true
-	rm -r dist || true
-	rm -r build || true
-	rm -r *.egg-info || true
-	rm -r tiddlywebplugins/tiddlydocs/resources || true
+	rm -Rf dist || true
+	rm -Rf build || true
+	rm -Rf *.egg-info || true
+	rm -Rf tiddlywebplugins/tiddlydocs/resources || true
+
+	rm -Rf tiddlyeditor_plus.py
+	rm -Rf gadget.py
+	rm -Rf room_script.py
+	rm -Rf space.py 
+	rm -Rf html_validator.py 
+	rm -Rf tiddlywiki_validator.py
+	rm -Rf rtf.py
+	
 
 remotes: python_remotes plugin_remotes
 

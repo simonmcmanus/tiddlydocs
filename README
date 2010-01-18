@@ -1,3 +1,24 @@
+Install : 
+pip install -U tiddlywebplugins.tiddlydocs
+tiddlydocs instance
+cd instance
+tiddlydocs_static_files.sh 
+nano tiddlywebconfig.py
+	
+		tiddlywebconfig.py to:
+
+		    "system_plugins": ['tiddlywebplugins.tiddlydocs',
+		        'tiddlywebplugins.static'],
+
+		and add:
+
+		    'static_url_dir': 'doccollab/static',
+
+restart your web server
+
+
+
+
 This is an attempt to package the TiddlyDocs system as
 a Python package. See below for HOWTO PACKAGE.
 

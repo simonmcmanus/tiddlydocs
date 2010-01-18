@@ -1,5 +1,5 @@
-AUTHOR = 'Simon McManus'
-AUTHOR_EMAIL = 'simon@osmosoft.com'
+AUTHOR = 'simonmcmanus'
+AUTHOR_EMAIL = 'mcmanus.simon@gmail.com'
 NAME = 'tiddlywebplugins.tiddlydocs'
 DESCRIPTION = 'Packaging of Tiddlydocs'
 VERSION = '0.10'
