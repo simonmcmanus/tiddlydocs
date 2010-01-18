@@ -1,179 +1,26 @@
+This is a Python package providing the client side and server side functionality required to run TiddlyDocs on TiddlyWeb. 
+
+More information about TiddlyDocs can be found at http://tiddlydocs.com
+
 Install : 
+
 pip install -U tiddlywebplugins.tiddlydocs
-tiddlydocs instance
-cd instance
+tiddlydocs INSTANCENAME
+cd INSTANCENAME
+
+
+Setup Static plugin/files : 
+
 tiddlydocs_static_files.sh 
 nano tiddlywebconfig.py
 	
-		tiddlywebconfig.py to:
+	tiddlywebconfig.py to:
 
-		    "system_plugins": ['tiddlywebplugins.tiddlydocs',
-		        'tiddlywebplugins.static'],
+	    "system_plugins": ['tiddlywebplugins.tiddlydocs', 'tiddlywebplugins.static'],
 
-		and add:
+	and add:
 
-		    'static_url_dir': 'doccollab/static',
+	    'static_url_dir': 'doccollab/static',
 
 restart your web server
 
-
-
-
-This is an attempt to package the TiddlyDocs system as
-a Python package. See below for HOWTO PACKAGE.
-
-If does a few things for the sake of packaging and
-installation. Thus far none of these changes are for
-supporting development. The things are:
-
-* In setup.py establishes dependencies on those python
-  packages which are dependencies that can be installed
-  from PyPI.
-
-* In tiddlywebplugins.tiddlydocs.instance it defines the
-  necessary recipes, bags, policies and instance_tiddlers
-  that are needed for the system to run.
-
-* In tiddlydocs (the script) it provides a way to do 
-
-    tiddlydocs <instance name>
-
-  to create a new instance with the necessary configuration
-  and recipes, bags, policies etc.
-
-* In tiddlydocs tiddlywebplugins/tiddlydocs/__init__.py is
-  the code required to bootstrap the plugin and its dependencies
-  include rtf, room_script etc.
-
-* In Makefile a 'remotes' target which does two things:
-  * Get the remote python files and store them locally for
-    packaging.
-  * Get the remote TiddlyWiki related files, mentioned in
-    tiddlywebplugins.tiddlydocs.instance, and cache them
-    locally so they can be packaged and reused after
-    installation.
-
-* In Makefile a 'dist' target which creates a 
-  tiddlywebplugins.tiddlydocs tarball that can go to
-  PyPI or be used directly with pip for installation,
-  dependencies will be satisfied.
-
-At the moment the code does _not_ handle the packaging of
-the static content used for the editor and other things.
-This needs to be dealt with in a separate process as how
-static content is handled is a per-instance concept whereas
-everything else is a per-machine concept.
-
-HOWTO PACKAGE
-
-Requirements:
-
-* A happy stable, clean Python development environment.
-* tiddlywebplugins.instancer version >=0.6.0.
-* wget (for retrieving remote stuff).
-
-One you are sure you have those things you can then proceed
-with packaging. If you want to change the version number
-update VERSION in setup.py.
-
-Then run
-
-   make dist
-
-This will retrieve remote Python and TiddlyWiki files over the
-network. Then a Python package containing those files will be 
-created and deposited into a directory named dist with a name
-of 'tiddlywebplugins.tiddlydocs-<version>.tar.gz.
-
-You can then take this file somewhere and install it. Once 
-TiddlyDocs has been registered at PyPI new releases can be
-uploaded there by running
-
-   make pypi
-
-This will make a new dist file and upload it to PyPI.
-
-HOWTO INSTALL
-
-Requirements
-
-* Python on the server in question.
-* Development version of pip. If pip is already installed
-  do this to install the dev version:
-
-    pip install -U pip==dev
-
-  If easy_install is installed, but not pip, then do this:
-
-    easy_install pip==dev
-
-* Install tiddlywebplugins.tiddlydocs:
-
-    pip install -U tiddlywebplugins.tiddlydocs
-
-  This will install the plugin and its dependencies, including
-  tiddlyweb, tiddlywebwiki, etc.
-
-You are now done with installation. Next you may wish to 
-create an instance. This is a separate process.
-
-HOWTO INSTANCE
-
-When tiddlywebplugins.tiddlydocs was installed a tiddlydocs
-'instancer' script was installed as well. This is used to
-create and populate a new instance.
-
-* Create the instance, choosing a name, such as tdocs:
-
-    tiddlydocs tdocs
-
-* Configure that instance for how it will served over the web
-  which means:
-  * Set server_host in tiddlywebconfig.py
-  * Configuring, in the web server and in tiddlywebconfig.py
-    how static content will be served.
-
-At the moment, how static content is handled is not defined
-by the plugin, and should not be. If you wish to use the static
-plugin in the instance you created change 'system_plugins' in
-tiddlywebconfig.py to:
-
-    "system_plugins": ['tiddlywebplugins.tiddlydocs',
-        'tiddlywebplugins.static'],
-
-and add:
-
-    'static_url_dir': 'doccollab/static',
-
-If you are running under Apache it is best to let Apache deliver
-the static content. In either case you need to get the static
-content. How to do that is not yet defined in this process. One
-option is this borrowed from Simon's gist: http://gist.github.com/272208
-
--=-=-
-mkdir static 
-cd static 
-mkdir ckeditor 
-curl http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.0/ckeditor_3.0.tar.gz > ckeditor_3.0.tar.gz
-tar xvf ckeditor_3.0.tar.gz
-rm ckeditor_3.0.tar.gz
- 
-svn co http://svn.tiddlywiki.org/Trunk/contributors/SimonMcManus/tiddlyweb/tiddlydocs/static/mypage_images/ mydocs_images
-svn co http://svn.tiddlywiki.org/Trunk/contributors/SimonMcManus/tiddlyweb/tiddlydocs/static/mypage_css/ mypage_css
--=-=-
-
-It might be best of all this static content is packaged up somewhere and
-made available for distribution.
-
-Another option is to make it all into binary tiddlers.
-
-HOWTO UPDATE
-
-When changes are made to the tiddlers which are source content
-for TiddlyDocs it is necessary to update the existing instances
-of tiddlydocs. Assuming the above install process has been followed
-in the past, the process for updating the instances is as follows:
-
-* sudo pip instal -U tiddlywebplugins.tiddlydocs
-* cd <instance dir>
-* twanager update
