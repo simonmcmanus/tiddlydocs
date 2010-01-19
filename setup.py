@@ -1,16 +1,14 @@
 AUTHOR = 'simonmcmanus'
-AUTHOR_EMAIL = 'mcmanus.simon@gmail.com'
+AUTHOR_EMAIL = 'simon@osmosoft.com'
 NAME = 'tiddlywebplugins.tiddlydocs'
 DESCRIPTION = 'Packaging of Tiddlydocs'
-VERSION = '0.11'
+VERSION = '0.12'
 
 
 import os
 
 from setuptools import setup, find_packages
 
-
-# You should carefully review the below (install_requires especially).
 setup(
     namespace_packages = ['tiddlywebplugins'],
     name = NAME,
@@ -28,8 +26,6 @@ setup(
     install_requires = ['setuptools',
         'tiddlyweb>=0.9.96',
         'tiddlywebwiki',
-        'tiddlywebplugins.atom',
-        'tiddlywebplugins.static',
         ],
     zip_safe = False,
     include_package_data = True,
