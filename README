@@ -1,8 +1,11 @@
-This is a Python package providing the client side and server side functionality required to run TiddlyDocs on TiddlyWeb. 
+This is a Python package providing the functionality required to run TiddlyDocs on TiddlyWeb. 
 
 More information about TiddlyDocs can be found at http://tiddlydocs.com
 
+_______________________
+
 Install : 
+
 
 pip install -U tiddlywebplugins.tiddlydocs
 tiddlydocs INSTANCENAME

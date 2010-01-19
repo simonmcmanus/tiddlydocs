@@ -43,7 +43,7 @@ store_structure['recipes']['tiddlydocs'] = {
         }
 
 instance_config = {
-        'system_plugins': ['tiddlywebplugins.tiddlydocs'],
+        'system_plugins': ['tiddlywebplugins.tiddlydocs', 'tiddlywebwiki'],
         'twanager_plugins': ['tiddlywebwiki'],
         'reserved_bag_names': ['tdocs', 'system'],
         'wikklytext.safe_mode': False,

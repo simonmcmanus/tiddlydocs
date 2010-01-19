@@ -2,7 +2,7 @@ AUTHOR = 'simonmcmanus'
 AUTHOR_EMAIL = 'mcmanus.simon@gmail.com'
 NAME = 'tiddlywebplugins.tiddlydocs'
 DESCRIPTION = 'Packaging of Tiddlydocs'
-VERSION = '0.10'
+VERSION = '0.11'
 
 
 import os
