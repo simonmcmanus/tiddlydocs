@@ -1,29 +1,29 @@
 #!/usr/bin/env python
 
 """
-tiddlydocs instantiation
+TiddlyDocs instantiation
 """
 
 import sys
-import os
-# extend module search path for access to tiddlywebconfig.py
-cwd = os.getcwd()
-sys.path.insert(0, cwd)
 
-from tiddlyweb.config import config
+from tiddlyweb.util import std_error_message
+
 from tiddlywebplugins.instancer.util import spawn
-from tiddlywebplugins.tiddlydocs import instance
+
+from tiddlywebplugins.tiddlydocs import instance as instance_module
+from tiddlywebplugins.tiddlydocs.config import config as init_config
 
 
 def main(args):
-    args = [unicode(arg, "UTF-8") for arg in args]
+    args = [unicode(arg, 'UTF-8') for arg in args]
     instance_path = args[1]
-    config['instance_tiddlers'] = instance.instance_tiddlers
-    spawn(instance_path, config, instance)
-    print "TiddlyDocs instance has been created. Please see the readme to setup static files. "
+
+    spawn(instance_path, init_config, instance_module)
+    std_error_message("TiddlyDocs instance has been created." +
+        "Please see the README to setup static files.")
     return True
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     status = not main(sys.argv)
     sys.exit(status)
