@@ -19,8 +19,8 @@ def main(args):
     instance_path = args[1]
 
     spawn(instance_path, init_config, instance_module)
-    std_error_message("TiddlyDocs instance has been created." +
-        "Please see the README to setup static files.")
+    std_error_message('TiddlyDocs instance has been created.' +
+        'Please see the README to setup static files.')
     return True
 
 
