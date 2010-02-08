@@ -9,3 +9,9 @@ added tiddlywebwiki to system_plugins to stop status error.
 
 0.12
 
+
+
+Current Issues : 
+
+* failed save notifications do not work. 
+

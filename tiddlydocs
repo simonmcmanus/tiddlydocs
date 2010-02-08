@@ -4,6 +4,7 @@
 tiddlydocs instantiation
 """
 
+import mangler
 import sys
 import os
 # extend module search path for access to tiddlywebconfig.py

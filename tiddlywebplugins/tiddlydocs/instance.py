@@ -1,9 +1,19 @@
 from tiddlywebplugins.instancer.util import get_tiddler_locations
 from tiddlywebwiki.instance import store_contents, store_structure
 
+
+#store_contents['tdocs'] = [
+#        'http://svn.tiddlywiki.org/Trunk/verticals/tiddlydocs/index.html.recipe',
+ #       ]
+
 store_contents['tdocs'] = [
-        'http://svn.tiddlywiki.org/Trunk/verticals/tiddlydocs/index.html.recipe',
+        'http://svn.tiddlywiki.org/Trunk/verticals/tiddlydocs/themes/TiddlyWikiTheme/minimal.html.recipe',
+       ]
+
+store_contents['ckeditor'] = [
+        'http://svn.tiddlywiki.org/Trunk/verticals/ckeditor/split.html.recipe',
         ]
+
 store_contents['documents'] = [
         'http://svn.tiddlywiki.org/Trunk/verticals/tiddlydocs/documents/TheInternet/split.recipe',
         ]
@@ -20,6 +30,18 @@ store_structure['bags']['tdocs'] = {
             }
         }
 
+store_structure['bags']['ckeditor'] = {
+        'desc': 'Plugins and friends for ckeditor',
+        'policy': {
+            'read': [],
+            'write': ['R:ADMIN'],
+            'create': ['R:ADMIN'],
+            'delete': ['R:ADMIN'],
+            'manage': ['R:ADMIN'],
+            'owner': 'administrator',
+            }
+        }
+		
 store_structure['bags']['documents'] = {
         'desc': 'Content for tiddlydocs example',
         'policy': {
@@ -41,6 +63,20 @@ store_structure['recipes']['tiddlydocs'] = {
             ('documents', ''),
             ],
         }
+
+
+
+store_structure['recipes']['cktiddlydocs'] = {
+        'desc': 'Sample tiddlydocs recipe',
+        'recipe': [
+            ('system', ''),
+            ('tdocs', ''),
+            ('documents', ''),
+      		('ckeditor', ''),
+            ],
+        }
+
+
 
 instance_config = {
         'system_plugins': ['tiddlywebplugins.tiddlydocs', 'tiddlywebwiki'],

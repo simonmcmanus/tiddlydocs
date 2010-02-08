@@ -2,28 +2,4 @@ This is a Python package providing the functionality required to run TiddlyDocs 
 
 More information about TiddlyDocs can be found at http://tiddlydocs.com
 
-_______________________
-
-Install : 
-
-
-pip install -U tiddlywebplugins.tiddlydocs
-tiddlydocs INSTANCENAME
-cd INSTANCENAME
-
-
-Setup Static plugin/files : 
-
-tiddlydocs_static_files.sh 
-nano tiddlywebconfig.py
-	
-	tiddlywebconfig.py to:
-
-	    "system_plugins": ['tiddlywebplugins.tiddlydocs', 'tiddlywebplugins.static'],
-
-	and add:
-
-	    'static_url_dir': 'doccollab/static',
-
-restart your web server
 
