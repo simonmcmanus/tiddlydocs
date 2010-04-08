@@ -2,10 +2,11 @@ from tiddlywebplugins.instancer.util import get_tiddler_locations
 from tiddlywebwiki.instance import store_contents, store_structure
 
 store_contents['tdocs'] = [
-        'http://svn.tiddlywiki.org/Trunk/verticals/tiddlydocs/index.html.recipe',
+        'http://svn.tiddlywiki.org/Trunk/verticals/tiddlydocs/themes/MyDocs/split.recipe',
+		'http://svn.tiddlywiki.org/Trunk/verticals/tiddlydocs/coreplugins.split.recipe'
         ]
 store_contents['documents'] = [
-        'http://svn.tiddlywiki.org/Trunk/verticals/tiddlydocs/documents/TheInternet/split.recipe',
+        'http://svn.tiddlywiki.org/Trunk/verticals/tiddlydocs/content/documents/TheInternet/split.recipe',
         ]
 
 store_structure['bags']['tdocs'] = {
